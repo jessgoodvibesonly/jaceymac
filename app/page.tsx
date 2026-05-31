@@ -27,7 +27,7 @@ const portfolioImages: PortfolioImage[] = [
     eyebrow: "03 / Runway",
   },
   {
-    src: "/JaceyMacRunway.png",
+    src: "/jaceymacrunwaynew.jpeg",
     alt: "Model Jacey MacKinnon walking the fashion runway",
     label: "Fashion Runway",
     eyebrow: "04 / Fashion",
