@@ -1,5 +1,3 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import styles from "./page.module.css";
 
 type PortfolioImage = {
@@ -7,25 +5,23 @@ type PortfolioImage = {
   alt: string;
   label: string;
   eyebrow: string;
-  required?: boolean;
 };
 
 const portfolioImages: PortfolioImage[] = [
   {
-    src: "/JaceyMacStudio.png",
+    src: "/softbeautyjacey.png",
     alt: "Studio portrait of model Jacey MacKinnon",
     label: "Studio Portrait",
     eyebrow: "01 / Studio",
-    required: true,
   },
   {
-    src: "/JaceyCompCardNoInfo.png",
+    src: "/bikinijacey.png",
     alt: "Comp card portrait of model Jacey MacKinnon",
     label: "Comp Card",
     eyebrow: "02 / Editorial",
   },
   {
-    src: "/JaceyRunway.png",
+    src: "/jaceyrunwaybikini.jpeg",
     alt: "Runway portrait of model Jacey MacKinnon",
     label: "Runway",
     eyebrow: "03 / Runway",
@@ -42,10 +38,6 @@ const modelDetails = [
   ["Eyes", "Green"],
   ["Age", "22"],
 ];
-
-function isAvailable(src: string) {
-  return existsSync(join(process.cwd(), "public", src.slice(1)));
-}
 
 export default function Home() {
   return (
@@ -79,7 +71,7 @@ export default function Home() {
           <div className={styles.heroImageWrap}>
             <img
               className={styles.heroImage}
-              src="/JaceyMacStudio.png"
+              src="/softbeautyjacey.png"
               alt="Studio portrait of model Jacey MacKinnon"
             />
             <p className={styles.verticalText}>Jacey MacKinnon · 2026</p>
@@ -120,29 +112,17 @@ export default function Home() {
         </div>
 
         <div className={styles.gallery}>
-          {portfolioImages.map((image) => {
-            const available = image.required || isAvailable(image.src);
-
-            return (
-              <figure className={styles.portfolioCard} key={image.src}>
-                <div className={styles.imageFrame}>
-                  {available ? (
-                    <img src={image.src} alt={image.alt} />
-                  ) : (
-                    <div className={styles.placeholder} aria-label={`${image.label} image coming soon`}>
-                      <span>JM</span>
-                      <p>{image.label}</p>
-                      <small>Image coming soon</small>
-                    </div>
-                  )}
-                </div>
-                <figcaption>
-                  <span>{image.eyebrow}</span>
-                  <strong>{image.label}</strong>
-                </figcaption>
-              </figure>
-            );
-          })}
+          {portfolioImages.map((image) => (
+            <figure className={styles.portfolioCard} key={image.src}>
+              <div className={styles.imageFrame}>
+                <img src={image.src} alt={image.alt} />
+              </div>
+              <figcaption>
+                <span>{image.eyebrow}</span>
+                <strong>{image.label}</strong>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
