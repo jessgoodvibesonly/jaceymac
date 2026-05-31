@@ -10,21 +10,27 @@ type PortfolioImage = {
 const portfolioImages: PortfolioImage[] = [
   {
     src: "/softbeautyjacey.png",
-    alt: "Studio portrait of model Jacey MacKinnon",
-    label: "Studio Portrait",
-    eyebrow: "01 / Studio",
+    alt: "Soft beauty portrait of model Jacey MacKinnon",
+    label: "Soft Beauty",
+    eyebrow: "01 / Beauty",
   },
   {
     src: "/bikinijacey.png",
-    alt: "Comp card portrait of model Jacey MacKinnon",
-    label: "Comp Card",
+    alt: "Swim editorial portrait of model Jacey MacKinnon",
+    label: "Swim Editorial",
     eyebrow: "02 / Editorial",
   },
   {
     src: "/jaceyrunwaybikini.jpeg",
-    alt: "Runway portrait of model Jacey MacKinnon",
+    alt: "Model Jacey MacKinnon walking the runway in a swim look",
     label: "Runway",
     eyebrow: "03 / Runway",
+  },
+  {
+    src: "/JaceyMacRunway.png",
+    alt: "Model Jacey MacKinnon walking the fashion runway",
+    label: "Fashion Runway",
+    eyebrow: "04 / Fashion",
   },
 ];
 
@@ -71,7 +77,7 @@ export default function Home() {
           <div className={styles.heroImageWrap}>
             <img
               className={styles.heroImage}
-              src="/softbeautyjacey.png"
+              src="/JaceyMacStudio.png"
               alt="Studio portrait of model Jacey MacKinnon"
             />
             <p className={styles.verticalText}>Jacey MacKinnon · 2026</p>
@@ -106,7 +112,7 @@ export default function Home() {
         <div className={styles.portfolioHeader}>
           <div>
             <p className={styles.eyebrow}>02 / Selected work</p>
-            <h2>Portfolio</h2>
+            <h2>PORTFOLIO</h2>
           </div>
           <p>Studio · Editorial · Runway</p>
         </div>
