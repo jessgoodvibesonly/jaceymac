@@ -1,16 +1,312 @@
+:root {
+  --ink: #1d1a17;
+  --paper: #eee9df;
+  --paper-deep: #ded4c4;
+  --cream: #f8f4ec;
+  --gold: #9b7a49;
+  --line: rgba(29, 26, 23, 0.22);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html,
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
-img {
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 47vw);
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2.2rem 6vw 3rem;
+  position: relative;
+}
+
+.hero::before {
+  background: linear-gradient(90deg, rgba(155, 122, 73, 0.18), transparent);
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 6rem;
+  width: 48%;
+}
+
+.hero-copy {
+  align-self: center;
+  padding-right: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow,
+.brand,
+.portfolio-link,
+.image-caption,
+.side-note,
+.portfolio-meta p,
+footer p:last-child {
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--gold);
+}
+
+.brand {
+  left: 6vw;
+  position: absolute;
+  top: 2.1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(5rem, 10vw, 10rem);
+  letter-spacing: -0.09em;
+  line-height: 0.74;
+  margin: 1.8rem 0;
+  max-width: 8ch;
+}
+
+h1 span {
+  color: var(--gold);
   display: block;
+  font-style: italic;
+  margin-left: 0.5em;
+}
+
+.hero-description {
+  font-family: Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  max-width: 19rem;
+}
+
+.hero-description i {
+  background: var(--gold);
+  display: inline-block;
+  height: 1px;
+  margin: 0 0.4rem 0.35rem;
+  width: 1.8rem;
+}
+
+.portfolio-link {
+  align-items: center;
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  text-decoration: none;
+}
+
+.portfolio-link span {
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  display: grid;
+  font-size: 1.1rem;
+  height: 2.7rem;
+  place-items: center;
+  transition: 180ms ease;
+  width: 2.7rem;
+}
+
+.portfolio-link:hover span {
+  background: var(--gold);
+  color: var(--cream);
+}
+
+.hero-image-wrap {
+  min-height: calc(100vh - 5.2rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image,
+.portfolio-image {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.image-frame {
+  border: 1px solid rgba(248, 244, 236, 0.7);
+  inset: 1rem;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.image-caption {
+  bottom: 2.2rem;
+  color: var(--cream);
+  left: 2.4rem;
+  position: absolute;
+  z-index: 2;
+}
+
+.side-note {
+  bottom: 3rem;
+  left: 1.5rem;
+  position: absolute;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+}
+
+.portfolio {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8rem 6vw 7rem;
+}
+
+.section-heading {
+  margin: 0 auto 4rem;
+  max-width: 38rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(4rem, 8vw, 7rem);
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  margin: 0.7rem 0 1rem;
+}
+
+.section-heading > p:last-child {
+  color: rgba(248, 244, 236, 0.72);
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  max-width: 76rem;
+}
+
+.portfolio-card:nth-child(2) {
+  margin-top: 3rem;
+}
+
+.portfolio-image-wrap {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-card:hover .portfolio-image {
+  transform: scale(1.04);
+}
+
+.portfolio-meta {
+  align-items: baseline;
+  border-bottom: 1px solid rgba(248, 244, 236, 0.22);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0 0.8rem;
+}
+
+.portfolio-meta p {
+  color: var(--gold);
+}
+
+h3 {
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
+footer {
+  align-items: center;
+  background: #161310;
+  color: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  padding: 2.3rem 6vw;
+}
+
+footer p:first-child {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+}
+
+footer p:last-child {
+  color: rgba(248, 244, 236, 0.58);
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 1.5rem 7vw 3rem;
+  }
+
+  .brand {
+    left: 7vw;
+    top: 1.5rem;
+  }
+
+  .hero-copy {
+    padding: 7.2rem 0 2.5rem;
+  }
+
+  h1 {
+    font-size: clamp(5rem, 24vw, 7.5rem);
+  }
+
+  .hero-image-wrap {
+    min-height: 31rem;
+  }
+
+  .side-note {
+    display: none;
+  }
+
+  .portfolio {
+    padding: 6rem 7vw 5rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card:nth-child(2) {
+    margin-top: 0;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 2rem 7vw;
+  }
+
+  footer p:last-child {
+    line-height: 1.7;
+    text-align: left;
+  }
 }
