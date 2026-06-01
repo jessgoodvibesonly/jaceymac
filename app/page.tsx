@@ -77,7 +77,7 @@ export default function Home() {
           <div className={styles.heroImageWrap}>
             <img
               className={styles.heroImage}
-              src="/JaceyMacStudio.png"
+              src="/jaceystudionew.png"
               alt="Studio portrait of model Jacey MacKinnon"
             />
             <p className={styles.verticalText}>Jacey MacKinnon · 2026</p>
